@@ -2,7 +2,7 @@ using UnityEngine;
 /// <summary>
 /// Classe para mover o player no mundo
 /// </summary>
-public class Movimento : MonoBehaviour
+public class Movimento : Personagem
 {
     public float VelocidadeAndar = 3;
     public float VelocidadeRodar = 30;
@@ -17,8 +17,9 @@ public class Movimento : MonoBehaviour
     CharacterController controller; //referencia para o componente CharacterController
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void Start()
     {
+        base.Start();   //executar a função Start da classe Personagem (base)
         controller = GetComponent<CharacterController>();
         if (controller == null)
             Debug.Log("Falta o character controller no player");
@@ -27,6 +28,8 @@ public class Movimento : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (vida.is_dead)
+            return;
         //rotação
         _inputRodar = SistemaInput.instance.DeltaRatoX;
         //transform.up - indica o eixo de rotação
