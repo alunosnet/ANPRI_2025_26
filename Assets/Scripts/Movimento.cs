@@ -26,8 +26,10 @@ public class Movimento : Personagem
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
+        //executa a função update para disparar as animações
+        base.Update();
         if (vida.is_dead)
             return;
         //rotação
@@ -37,22 +39,29 @@ public class Movimento : Personagem
         transform.Rotate(transform.up * _inputRodar * VelocidadeRodar * Time.deltaTime);
         //movimento
         _inputAndar = SistemaInput.instance.EixoVertical;
+        base.movimento = _inputAndar;
         //transform.forward - indica para onde o player "esta virado"
         Vector3 vector3 = transform.forward * _inputAndar * VelocidadeAndar * Time.deltaTime;
         //correr
-        if (SistemaInput.instance.Correr==false)
+        if (SistemaInput.instance.Correr == false)
             controller.Move(vector3);
         else
-            controller.Move(vector3*1.5f);
+        {
+            controller.Move(vector3 * 1.5f);
+            base.movimento = 2;
+        }
+
         //saltar e gravidade
         if (_isGrounded && SistemaInput.instance.Saltar)
         {
             _velocidade.y = Mathf.Sqrt(VelocidadeSalto * Physics.gravity.y);
+            base.saltar = true;
         }
         else
         {
             //aplicar gravidade
             _velocidade += Physics.gravity * Time.deltaTime;
+            base.saltar = false;
         }
         //aplicar salto ou gravidade
         controller.Move(_velocidade * Time.deltaTime);

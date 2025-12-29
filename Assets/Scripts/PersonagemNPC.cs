@@ -38,8 +38,8 @@ public class PersonagemNPC : Personagem
         _agente.isStopped= true;
         _agente.speed = 0;
         _agente.velocity = Vector3.zero;
-        Estado = NPCEstados.Morto;
-        movimento = 0;
+       // Estado = NPCEstados.Morto;
+        base.movimento = 0;
     }
     void Estado_Idle()
     {
@@ -47,7 +47,7 @@ public class PersonagemNPC : Personagem
         _agente.speed = 0;
         _agente.velocity = Vector3.zero;
         Estado = NPCEstados.Idle;
-        movimento = 0;
+        base.movimento = 0;
     }
     void Estado_Patrulha()
     {
@@ -78,11 +78,12 @@ public class PersonagemNPC : Personagem
         //Definir o ponto para onde se move
         _agente.SetDestination(Pontos[ProximoPonto].position);
         //definir a animação de andar
-        movimento = 1;
+        base.movimento = 1;
     }
     void Estado_Atacar()
     {
         _agente.speed = Velocidade * 1.5f;
+
         //rodar para o player ignorando o y do player
         Vector3 OlharPara = new Vector3(Player.transform.position.x,
                                         transform.position.y,
@@ -95,17 +96,20 @@ public class PersonagemNPC : Personagem
             //Atacar
             _agente.isStopped = true;
             _agente.velocity = Vector3.zero;
+            base.movimento = 0;
             if (Time.time > IntervaloAtual)
             {
                 IntervaloAtual = Time.time + IntervaloAtacar;
                 Player.GetComponent<Vida>().Perde_vida(ValorTiraVida);
-                atacar = true;
+
+                base.atacar = true;
             }
         }
         else
         {
             _agente.isStopped = false;
             _agente.SetDestination(Player.transform.position);
+            base.movimento = 2;
         }
     }
     bool VePlayer()
@@ -119,19 +123,20 @@ public class PersonagemNPC : Personagem
                                     AnguloVisao, DistanciaVisao);
     }
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
         if (_agente==null)
         {
             Debug.Log("Falta o NavMeshAgent!");
             return;
         }
+        base.Update();
         if (vida!=null && vida.is_dead)
         {
             Estado_Morto();
             return;
         }
-        //TODO: base.Update();
+
         switch (Estado)
         {
             case NPCEstados.Idle:

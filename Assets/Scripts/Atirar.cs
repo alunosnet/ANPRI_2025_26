@@ -8,6 +8,7 @@ public class Atirar : MonoBehaviour
     public float IntervaloAtirar = 2f;
     public float IntervaloAtual;
     public float TempoVida = 10; //Tempo para a pedra desaparecer
+    Personagem _personagem;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,15 +18,18 @@ public class Atirar : MonoBehaviour
             Debug.Log("Falta o modelo a atirar");
         if (PosicaoAtirar == null)
             Debug.Log("Falta a posição de atirar");
+        _personagem = GetComponent<Personagem>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (_personagem.Estado == Personagem.NPCEstados.Morto) return;
         if (SistemaInput.instance.Atacar)
         {
             if (Time.time > IntervaloAtual)
             {
+                _personagem.atacar= true;
                 AtirarObjeto();
                 IntervaloAtual = Time.time + IntervaloAtirar;
             }
