@@ -43,6 +43,7 @@ public class DaVida : MonoBehaviour
         {
             vida.Ganha_vida(ValorPerdeVida);
             ProximoIntervalo = Time.time + IntervaloPerdeVida;
+            SistemaMensagem.instance.MostraMensagem("Ganhou vida");
         }
         if (Destroi)
             Destroy(this.gameObject);

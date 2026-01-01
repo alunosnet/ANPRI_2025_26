@@ -25,6 +25,8 @@ public class Atirar : MonoBehaviour
     void Update()
     {
         if (_personagem.Estado == Personagem.NPCEstados.Morto) return;
+        //verificar se o tempo está parado
+        if (Time.timeScale ==0 ) return;
         if (SistemaInput.instance.Atacar)
         {
             if (Time.time > IntervaloAtual)
