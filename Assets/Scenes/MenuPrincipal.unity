@@ -465,7 +465,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 365382492}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1080003248}
+        m_TargetAssemblyTypeName: MenuPrincipal, Assembly-CSharp
+        m_MethodName: Continuar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &365382492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1155,6 +1167,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927dc9a7d7a63c5438bf4c37d90625ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  resolucoes:
+  - 800x600
+  - 1366x768
+  - 1920x1080
+  qualityLevels:
+  - {fileID: 11400000, guid: 5e722e9d373aa44478d39b01a3d0b012, type: 2}
+  - {fileID: 11400000, guid: 58d23763dddcdc54aa869d1b54865607, type: 2}
+  - {fileID: 11400000, guid: f69cda180e91a494b99b992e16537d4a, type: 2}
 --- !u!114 &1080003249
 MonoBehaviour:
   m_ObjectHideFlags: 0

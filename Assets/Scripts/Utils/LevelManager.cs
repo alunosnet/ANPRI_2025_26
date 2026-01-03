@@ -47,6 +47,17 @@ public class LevelManager : MonoBehaviour
     }
     void ProximoNivel()
     {
+        GuardaNivel();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    void GuardaNivel()
+    {
+        int indiceNivel = SceneManager.GetActiveScene().buildIndex + 1;
+        int indiceGravado = PlayerPrefs.GetInt("nivel", -1);
+        if (indiceGravado < indiceNivel)
+        {
+            PlayerPrefs.SetInt("nivel", indiceNivel);
+            PlayerPrefs.Save();
+        }
     }
 }

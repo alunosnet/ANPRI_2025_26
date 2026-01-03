@@ -3,6 +3,7 @@ using UnityEngine;
 public class Libertar : MonoBehaviour
 {
     PersonagemNPC npc;
+    public GameObject efeito;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,8 +19,12 @@ public class Libertar : MonoBehaviour
 
         if (other.tag=="Objetivo")
         {
-
-            Destroy(this.gameObject, 2);
+            if (efeito != null)
+            {
+                var efeito_particulas = Instantiate(efeito, transform.position, Quaternion.identity);
+                Destroy(efeito_particulas, 2);
+            }
+            Destroy(this.gameObject, 1);
         }
     }
 }
