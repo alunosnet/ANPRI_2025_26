@@ -16,14 +16,15 @@ public class SistemaMensagem : MonoBehaviour
             return;
         }
         instance = this;
-
+        textoMensagem = GetComponent<TextMeshProUGUI>();
+        EscondeMensagem();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        textoMensagem = GetComponent<TextMeshProUGUI>();
-        EscondeMensagem();
+        
+ 
     }
 
     public void MostraMensagem(string texto,float duracao=4)

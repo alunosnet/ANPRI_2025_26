@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuJogo : MonoBehaviour
 {
@@ -30,10 +31,9 @@ public class MenuJogo : MonoBehaviour
         Time.timeScale = 1; //Continuar o jogo
         Cursor.lockState = CursorLockMode.Locked; //esconder o rato
     }
-    //TODO: Sair -> carregar o menu principal
     public void Sair()
     {
-        Debug.Log("Sair");
+        SceneManager.LoadScene("MenuPrincipal");
     }
     //TODO: Materializar o nível jogado
     // Update is called once per frame

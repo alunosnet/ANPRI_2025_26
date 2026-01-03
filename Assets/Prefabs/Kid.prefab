@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kid
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 26b65b8b9104a2348b67cddd37181f69, type: 3}
+      propertyPath: m_TagString
+      value: Kid
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -65,6 +69,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 26b65b8b9104a2348b67cddd37181f69, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4416208611549186284}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 26b65b8b9104a2348b67cddd37181f69, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5411428098058129330}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 26b65b8b9104a2348b67cddd37181f69, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4451239217314238788}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 26b65b8b9104a2348b67cddd37181f69, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 566530629996353741}
   m_SourcePrefab: {fileID: 100100000, guid: 26b65b8b9104a2348b67cddd37181f69, type: 3}
 --- !u!1 &6078815689249609844 stripped
 GameObject:
@@ -143,3 +156,74 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &5411428098058129330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6078815689249609844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56820dea29da1764780a91818100c1c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PersonagemNPC
+  vida: {fileID: 0}
+  Estado: 0
+  p_movimento: movimento
+  movimento: 0
+  p_saltar: saltar
+  saltar: 0
+  p_atacar: atacar
+  atacar: 0
+  p_morto: morto
+  Inimigo: 0
+  Pontos:
+  - {fileID: 0}
+  ProximoPonto: 0
+  Velocidade: 3
+  DistanciaMinima: 1
+  DistanciaAtaca: 1
+  ValorTiraVida: 10
+  DistanciaVisao: 50
+  AnguloVisao: 90
+  Olhos: {fileID: 0}
+  Player: {fileID: 0}
+  TempoEspera: 5
+  TempoAEspera: 0
+  IntervaloAtacar: 5
+  IntervaloAtual: 0
+--- !u!114 &4451239217314238788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6078815689249609844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f47e03fcac03b46499f9d49ce50592c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+--- !u!95 &566530629996353741
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6078815689249609844}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 27a7b5d9e99b2af45a841413139eb014, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
